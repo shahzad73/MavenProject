@@ -1,0 +1,55 @@
+we will see Hadoop map side join with Distributed Cache below
+
+first of all we need to prepare data samples for this map side join
+
+Note: we need to remember one thing is that we always put the small file in the distributed cache and 
+send large file to map phase.
+
+
+Note this is also example of map side join as smaller file has been distrobuted to all mappers 
+and then in map there is a join
+
+
+Table 1 (Always Small Table):
+
+Department table with deptno and deptname(tab seperated)        hdfs file name   "departments_txt"
+001	hadoop
+002	hive
+003	pig
+004	sqoop
+005	oozie
+006	mapreduce
+
+Table 2(Always LargeTable):
+
+Employee table with Employee info(tab separated)				hdfs file name    "empdata_txt"
+
+empid    empname    salary    deptid
+
+1	name	2000	001
+2	name2	4000	002
+3	name3	5000	005
+4	name4	7000	003
+5	name5	8000	004
+
+
+
+Desired Output
+empid    empname    salary    deptid	deptName
+
+1    name    2000    001    hadoop
+2    name2    4000    002    hive
+3    name3    5000    005    oozie
+4    name4    7000    003    pig
+5    name5    8000    004    sqoop
+
+
+
+
+
+
+
+hadoop jar mjar22.jar hadoop.DistributedCache.MapJoinDriver /tmp/empdata_txt /tmp/res1
+
+
+

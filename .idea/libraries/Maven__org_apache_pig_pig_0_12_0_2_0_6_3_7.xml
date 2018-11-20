@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.pig:pig:0.12.0.2.0.6.3-7">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/pig/pig/0.12.0.2.0.6.3-7/pig-0.12.0.2.0.6.3-7.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/pig/pig/0.12.0.2.0.6.3-7/pig-0.12.0.2.0.6.3-7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/pig/pig/0.12.0.2.0.6.3-7/pig-0.12.0.2.0.6.3-7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

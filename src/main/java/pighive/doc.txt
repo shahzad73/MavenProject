@@ -1,0 +1,48 @@
+
+Data saved as pig1 in HDFS   notice how it is loaded in pig script.
+-------------------------------------------------------------
+1,The Nightmare Before Christmas,1993,3.9,4568
+2,The Mummy,1932,3.5,4388
+3,Orphans of the Storm,1921,3.2,9062
+4,The Object of Beauty,1991,2.8,6150
+5,Night Tide,1963,2.8,5126
+6,One Magic Christmas,1985,3.8,5333
+7,Muriel's Wedding,1994,3.5,6323
+8,Mother's Boys,1994,3.4,5733
+9,Nosferatu: Original Version,1929,3.5,5651
+10,Nick of Time,1995,3.4,5333
+
+
+
+
+pig1.pig   pig script file
+-------------------------------------------------------------
+REGISTER mjar22.jar;
+
+Movies = LOAD '/tmp/pig1' USING  PigStorage(',') as (id:int,name:chararray,year:int,rating:float, duration:int);
+
+movies_greater_than_three_point_five = FILTER Movies BY rating > 3.5;
+
+foreachexample = foreach movies_greater_than_three_point_five generate year,rating,name,hadoop.pighive.pig1('SAbcf');
+
+STORE foreachexample INTO  '$outputdir' USING PigStorage (',');
+
+
+
+
+pig1.java is a pig UDF   that takes in a text value and return first character of that value      here is the output of the above script
+notice S at the end
+-------------------------------------------------------------
+1993,3.9,The Nightmare Before Christmas,S
+1985,3.8,One Magic Christmas,S
+
+
+
+pig param outputfir=/tmp/pigout123 -f pig1.pig
+
+
+
+
+
+
+

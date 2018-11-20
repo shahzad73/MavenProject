@@ -1,0 +1,13 @@
+package drools;
+
+global String topicLevel
+
+
+rule "Drools Introduction"
+
+when
+    $droolsIntro : DroolsIntro( topic == "Drools" )
+then
+    System.out.println($droolsIntro.introduceYourself() + " " + topicLevel );
+end
+

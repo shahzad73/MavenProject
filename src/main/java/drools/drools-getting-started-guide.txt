@@ -1,0 +1,39 @@
+Drools 
+
+
+Include the maven repositories 
+
+create some drools java  files    initially i created HelloDools  with 2 objects    Golfer and DroolsIntro
+
+
+
+
+Now create a folder     drools     under   /src/main/resources     and put all .drl files in there. 
+remember that drools is now the package  that will be referenced within kmodule.xml file 
+Also all rules under this folder should have    "package drools;"      on top to put those rules under this package
+
+
+
+
+Now create file  kmodule.xml  in META-INF   folder in   src/main/resources        here are the contents of this file
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.drools.org/xsd/kmodule">
+
+    <kbase name="HelloDrools" packages="drools">
+        <ksession name="HelloDroolsSession"/>
+    </kbase>
+
+</kmodule>
+
+Note following in above xml file
+1.  create kbase and note the packages     packages should refer packages that contain rules
+2.  ksession     note the name in this case   HelloDroolsSession       this name will be used in drool java program 
+    to create an instance.    All rules mentioned in packages will be available under this session.  check HelloDrools.java  file and see how this instance is created
+
+
+
+
+
+To compile  this program and these make sure that you have the      build       section in pom      i have a copy of that in the OneNote Java/Maven page
+put that section at end of the pom              that build  section creates the uber jar with all dependencies 
